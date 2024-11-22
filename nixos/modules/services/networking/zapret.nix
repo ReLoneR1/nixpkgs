@@ -19,7 +19,7 @@ let
     lib.optionalString (cfg.iplist != null)
       "--ipset ${pkgs.writeText "zapret-iplist" (lib.concatStringsSep "\n" cfg.iplist)}";
 
-  ports = if cfg.httpSupport then "80,443" else "443";
+  ports = if cfg.httpSupport then "80,443,50000-50100" else "443";
 in
 {
   options.services.zapret = {
